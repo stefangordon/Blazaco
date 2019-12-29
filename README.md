@@ -1,5 +1,4 @@
-# Blazaco <a href="https://kyleundefined.visualstudio.com/Blazaco/_build"><img src="https://kyleundefined.visualstudio.com/Blazaco/_apis/build/status/Blazaco-CI"/></a> <a href="https://www.nuget.org/packages/Blazaco/"><img src="https://buildstats.info/nuget/Blazaco" /></a>
-A Blazor Component utilizing the Monaco editor by Microsoft, inspired by [BlazorBits](https://github.com/BlazorBits/BlazorBits). Built and tested for Blazor version 3.0.100-preview5-011568.
+# Patched Blazaco
 
 I built this after writing my own ShareX (image / code / link) API in Blazor, just seeing what all it's capable of, and was looking for a way to style the code page. Found the BlazorBits but noticed it wasn't on Nuget anymore and was outdated, so decided to build an updated version. Any feedback would greatly be appreciated.
 
@@ -30,13 +29,8 @@ Install-Package Blazaco
 
 * Add the `MonacoEditor` Component anywhere in your file
 ```html
-<MonacoEditor ref="_editor" Model="@_editorModel" Width="500" Height="500" />
-
-// or
-
-<MonacoEditor ref="_editor" Model="@_editorModel" FullScreen="true" />
+<MonacoEditor class="editor-class" ref="_editor" Model="@_editorModel" />
 ```
-_Note: You can have a set Width / Height (Defaults to 800 / 600) or have a Fullscreen mode_
 
 * Add your `MonacoEditor` and `EditorModel` fields to your `@functions`
 ```csharp
@@ -118,9 +112,14 @@ Currently I've only created a handful of Methods for Interop, as that's all I re
   * Sets the Value for the Monaco Editor to display
 * `SetTheme`
   * Sets the Theme for the Monaco Editor
+* `Layout`
+  * Instructs the editor to remeasure its container. This method should be called when the container of the editor gets resized
 
 # Change log
   * History and changes can be located in the [CHANGELOG.md](https://github.com/Kyle-Undefined/Blazaco/blob/master/CHANGELOG.md)
 
 # Copyright
 Copyright (c) 2019 Kyle Undefined under the MIT License.
+
+# Note
+This is just a patched Version of https://github.com/Kyle-Undefined/Blazaco with all Merge Request merged and maybe other improvements. Enjoy!
